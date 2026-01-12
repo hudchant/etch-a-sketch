@@ -1,0 +1,31 @@
+* {
+    border-color: red;
+    border-style: solid;
+}
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    border-width: 0px;
+}
+
+body {
+    font-family:'Times New Roman', Times, serif;
+}
+
+.box {
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.2);
+    width: 81px;
+    height: 81px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
