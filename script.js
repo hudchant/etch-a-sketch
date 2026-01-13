@@ -7,12 +7,20 @@ document.addEventListener('DOMContentLoaded', function () {
     allBoxes.forEach(box => {
 
         box.addEventListener('mouseenter', () => {
-            box.style.backgroundColor = 'purple';
+            box.style.backgroundColor = 'black';
         });
 
         box.addEventListener('mouseout', () => {
-            box.style.backgroundColor = 'orange';
+            box.style.backgroundColor = 'red';
         });
+    });
+});
+
+// Listen for button clicks
+document.addEventListener('DOMContentLoaded', function () {
+    const button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        const newSize = prompt('Enter the number of boxes per line. Don\'t go higher than 100!');
     });
 });
 
