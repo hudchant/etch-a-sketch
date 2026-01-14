@@ -8,8 +8,8 @@ body {
 
 .box {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    width: 81px;
-    height: 81px;
+    width: 60px;
+    height: 60px;
 }
 
 .container {
@@ -17,6 +17,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    width: 1000px;
 }
 
 .button {

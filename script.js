@@ -1,5 +1,4 @@
 
-
 // Respond to mouseenter and mouseout actions
 document.addEventListener('DOMContentLoaded', function () {
     const allBoxes = document.querySelectorAll('.box');
@@ -20,7 +19,24 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const button = document.querySelector('button');
     button.addEventListener('click', () => {
-        const newSize = prompt('Enter the number of boxes per line. Don\'t go higher than 100!');
+        const newSize = prompt('Enter the number of squares per side.');
+
+        if (newSize > 100) {
+            prompt('Number must not exceed 100. Please try again.');
+        } else {
+            resizeGrid();
+        }
+
     });
 });
+
+// Function to resize the grid
+function resizeGrid() {
+    boxWidth = (1000 / newSize) - 2;
+    boxHeight = (1000 / newSize) - 2;
+
+    allBoxes.foreach(box => {
+        box.remove();
+    });
+}
 
