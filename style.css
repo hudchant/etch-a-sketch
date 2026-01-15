@@ -3,15 +3,17 @@ html {
 }
 
 body {
-    font-family:'Times New Roman', Times, serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.box {
+/* Style the div squares inside the container, including the newly created squares */
+.box, .newBox {
     border: 1px solid rgba(0, 0, 0, 0.2);
     width: 60px;
     height: 60px;
 }
 
+/* Style the flex container and align the boxes within, so they appear as a single grid */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -21,6 +23,7 @@ body {
     width: 1000px;
 }
 
+/* Style the button container */
 .button {
     display: flex;
     flex-wrap: wrap;
@@ -29,6 +32,21 @@ body {
     margin: 20px;
 }
 
+/* Style the resize button itself */
+button {
+    font-size: 14px;
+    font-weight: 800;
+    background-color: #ffffff;
+    border: 2px #000000 solid;
+    border-radius: 5px;
+    width: 125px;
+    height: 30px;
+}
+
+/* Style the resize button upon hover */
+button:hover {
+    background-color: #f2f2f2;
+}
 
 
 
