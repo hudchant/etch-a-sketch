@@ -1,16 +1,24 @@
+// Fill the square divs with a random color when moused over
+function randomizeColor() {
+    const red = Math.floor(Math.random() * 256); // Color value for red light
+    const green = Math.floor(Math.random() * 256); // Color value for green light
+    const blue = Math.floor(Math.random() * 256); // Color value for blue light
+    // Return all color values in RGB format
+    return `rgb(${red}, ${green}, ${blue})`;
+}
 
 // Respond to mouseenter and mouseout actions
 document.addEventListener('DOMContentLoaded', function () {
     const allBoxes = document.querySelectorAll('.box');
 
     allBoxes.forEach(box => {
-        // Set square color to black when mouse enters
+        // Set square to a random color when mouse enters
         box.addEventListener('mouseenter', () => {
-            box.style.backgroundColor = 'black';
+            box.style.backgroundColor = randomizeColor();
         });
-        // Set square color to red when mouse exits
+        // Set square to a random color when mouse exits
         box.addEventListener('mouseout', () => {
-            box.style.backgroundColor = 'red';
+            box.style.backgroundColor = randomizeColor();
         });
     });
 });
@@ -21,12 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const button = document.querySelector('button');
     button.addEventListener('click', () => {
         // Prompt user to enter the number of squares per side
-        const newSize = prompt('Enter the number of squares per side.');
+        let newSize = prompt('Enter the number of squares per side.');
+        
+        // Handle instances when user clicks the cancel button on the prompt
+        if (newSize === null) {
+            return; // Exit the function
+        }
         // User can enter any positive integer not exceeding 100
         while (newSize > 100) {
             // Ask user to re-enter number if value is invalid
-            prompt('Number must not exceed 100. Please try again.');
-            return; // Exit the function
+            newSize = prompt('Number must not exceed 100. Please try again.');
         }
         // Call the resizeGrid function when user enters a valid value
         resizeGrid(newSize);
@@ -49,18 +61,20 @@ function resizeGrid(newSize) {
     // Loop until the correct number of divs is created based on user input
     for (let i = 0; i < newSize; i++) {
         for (let j = 0; j < newSize; j++) {
+
             const newBox = document.createElement('div');
             newBox.classList.add('newBox');
             newBox.style.width = boxWidth + 'px';
             newBox.style.height = boxWidth + 'px';
 
-            // Set square color to black when mouse enters
+            // Set square to a random color when mouse enters
             newBox.addEventListener('mouseenter', () => {
-                newBox.style.backgroundColor = 'black';
+                box.style.backgroundColor = randomizeColor();
             });
-            // Set square color to red when mouse exits
+
+            // Set square to a random color when mouse exits
             newBox.addEventListener('mouseout', () => {
-                newBox.style.backgroundColor = 'red';
+                newBox.style.backgroundColor = randomizeColor();
             });
             // Append the new divs to the container element
             container.appendChild(newBox);
