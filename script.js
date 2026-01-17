@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', () => {
         // Prompt user to enter the number of squares per side
         let newSize = prompt('Enter the number of squares per side.');
-        
+
         // Handle instances when user clicks the cancel button on the prompt
         if (newSize === null) {
             return; // Exit the function
@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
         while (newSize > 100) {
             // Ask user to re-enter number if value is invalid
             newSize = prompt('Number must not exceed 100. Please try again.');
+            if (newSize === null) {
+                return; // Exit the function
+            }
         }
         // Call the resizeGrid function when user enters a valid value
         resizeGrid(newSize);
@@ -81,4 +84,5 @@ function resizeGrid(newSize) {
         }
     }
 }
+
 
