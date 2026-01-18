@@ -22,7 +22,7 @@ body {
     width: 1000px;
 }
 
-/* Style the button container */
+/* Button container */
 .button {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +31,7 @@ body {
     margin: 30px;
 }
 
-/* Style the resize button itself */
+/* Resize button */
 button {
     font-size: 14px;
     font-weight: 800;
@@ -42,7 +42,7 @@ button {
     height: 65px;
 }
 
-/* Style the resize button upon hover */
+/* Resize button hover effects */
 button:hover {
     background-color: #f2f2f2;
 }

@@ -8,7 +8,6 @@ function randomizeColor() {
     return randomColor;
 }
 
-
 // Respond to mouseenter and mouseout actions
 document.addEventListener('DOMContentLoaded', function () {
     const allBoxes = document.querySelectorAll('.box');
@@ -17,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Initiate counter to track mouse events
         let counter = 0;
         // Set default opacity of divs to 0
-        box.style.opacity = 0;
+        box.style.opacity = 0.1;
+        // Set default border of divs
+        box.style.border = '1px solid rgba(0, 0, 0, 1)';
+
         // Set square to a random color when mouse enters
         box.addEventListener('mouseenter', () => {
             // Assign square a random color when mouse enters div
@@ -28,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Track number of passes by mouse through each div and darken color accordingly
             if (counter < 10) {
                 box.style.opacity = (boxOpacity + 0.1).toString();
+                box.style.border = '1px solid rgba(0, 0, 0, 0.2)'; // Reset border color to not darken with each mouse event
                 counter++;
-                console.log(boxOpacity);
             } else if (counter === 10) {
                 return; // If counter reaches 10, exit function
             }
@@ -87,7 +89,9 @@ function resizeGrid(newSize) {
             newBox.style.width = boxWidth + 'px';
             newBox.style.height = boxWidth + 'px';
             // Set default opacity of divs to 0
-            newBox.style.opacity = 0;
+            newBox.style.opacity = 0.1;
+            // Set default border of divs
+            newBox.style.border = '1px solid rgba(0, 0, 0, 1)';
 
             // Initiate counter to track mouse events
             let counter = 0;
@@ -102,6 +106,7 @@ function resizeGrid(newSize) {
                 // Track number of passes by mouse through each div and darken color accordingly
                 if (counter < 10) {
                     newBox.style.opacity = (boxOpacity + 0.1).toString();
+                    newBox.style.border = '1px solid rgba(0, 0, 0, 0.2)'; // Reset border color to not darken with each mouse event
                     counter++;
                     console.log(boxOpacity);
                 } else if (counter === 10) {
