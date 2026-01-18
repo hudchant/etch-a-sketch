@@ -4,24 +4,39 @@ function randomizeColor() {
     const green = Math.floor(Math.random() * 256); // Color value for green light
     const blue = Math.floor(Math.random() * 256); // Color value for blue light
     // Return all color values in RGB format
-    return `rgb(${red}, ${green}, ${blue})`;
+    let randomColor = `rgb(${red}, ${green}, ${blue})`;
+    return randomColor;
 }
+
 
 // Respond to mouseenter and mouseout actions
 document.addEventListener('DOMContentLoaded', function () {
     const allBoxes = document.querySelectorAll('.box');
 
     allBoxes.forEach(box => {
+        // Initiate counter to track mouse events
+        let counter = 0;
+        // Set default opacity of divs to 0
+        box.style.opacity = 0;
         // Set square to a random color when mouse enters
         box.addEventListener('mouseenter', () => {
+            // Assign square a random color when mouse enters div
             box.style.backgroundColor = randomizeColor();
-        });
-        // Set square to a random color when mouse exits
-        box.addEventListener('mouseout', () => {
-            box.style.backgroundColor = randomizeColor();
+            // Assign variable name to box opacity property
+            let boxOpacity = parseFloat(box.style.opacity);
+
+            // Track number of passes by mouse through each div and darken color accordingly
+            if (counter < 10) {
+                box.style.opacity = (boxOpacity + 0.1).toString();
+                counter++;
+                console.log(boxOpacity);
+            } else if (counter === 10) {
+                return; // If counter reaches 10, exit function
+            }
         });
     });
 });
+
 
 // Listen for button clicks
 document.addEventListener('DOMContentLoaded', function () {
@@ -66,23 +81,36 @@ function resizeGrid(newSize) {
         for (let j = 0; j < newSize; j++) {
 
             const newBox = document.createElement('div');
+            // Assign class name to new boxes for styling
             newBox.classList.add('newBox');
+            // Set the width and height of new boxes
             newBox.style.width = boxWidth + 'px';
             newBox.style.height = boxWidth + 'px';
+            // Set default opacity of divs to 0
+            newBox.style.opacity = 0;
+
+            // Initiate counter to track mouse events
+            let counter = 0;
 
             // Set square to a random color when mouse enters
             newBox.addEventListener('mouseenter', () => {
-                box.style.backgroundColor = randomizeColor();
-            });
-
-            // Set square to a random color when mouse exits
-            newBox.addEventListener('mouseout', () => {
+                // Assign square a random color when mouse enters div
                 newBox.style.backgroundColor = randomizeColor();
+                // Assign variable name to box opacity property
+                let boxOpacity = parseFloat(newBox.style.opacity);
+
+                // Track number of passes by mouse through each div and darken color accordingly
+                if (counter < 10) {
+                    newBox.style.opacity = (boxOpacity + 0.1).toString();
+                    counter++;
+                    console.log(boxOpacity);
+                } else if (counter === 10) {
+                    return; // If counter reaches 10, exit function
+                }
             });
             // Append the new divs to the container element
             container.appendChild(newBox);
         }
     }
 }
-
 
